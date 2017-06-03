@@ -30,7 +30,7 @@ public class JRBotController {
     @GET
     @Path("/logs")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getLogs(@PathParam("id") int id) {
+    public Response getLogs() {
         return Response
                 .ok()
                 .entity(gson.toJson(messages))
