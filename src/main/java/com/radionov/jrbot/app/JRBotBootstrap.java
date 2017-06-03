@@ -10,6 +10,7 @@ import java.net.URI;
  */
 public class JRBotBootstrap {
     public static void main(String[] args) {
+        System.out.println("privet!!!!");
         URI baseUri = UriBuilder.fromUri("http://localhost/").port(8888).build();
         JRBotApplication config = new JRBotApplication();
         JettyHttpContainerFactory.createServer(baseUri, config);
