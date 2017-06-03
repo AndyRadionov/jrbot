@@ -16,11 +16,10 @@ public class JRBotController {
     private static Gson gson = new Gson();
     private static Set<String> messages = ConcurrentHashMap.newKeySet();
 
-    @GET
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getMessage(String body) {
+    public Response receiveMessage(String body) {
         messages.add(body);
         return Response
                 .status(Response.Status.OK)
@@ -29,9 +28,9 @@ public class JRBotController {
     }
 
     @GET
-    @Path("/log")
+    @Path("/logs")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getById(@PathParam("id") int id) {
+    public Response getLogs(@PathParam("id") int id) {
         return Response
                 .ok()
                 .entity(gson.toJson(messages))
