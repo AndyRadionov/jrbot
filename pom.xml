@@ -11,7 +11,8 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <compiler.version>3.5.1</compiler.version>
+        <compiler.version>3.6.1</compiler.version>
+        <shade.version>3.0.0</shade.version>
         <jersey.version>2.25</jersey.version>
         <gson.version>2.7</gson.version>
         <junit.version>4.12</junit.version>
@@ -86,8 +87,26 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.4</version>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${shade.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>JRBot</finalName>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>com.radionov.jrbot.app.JRBotBootstrap</Main-Class>
+                                    </manifestEntries>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
@@ -95,8 +114,12 @@
                 <version>1.1.3</version>
                 <configuration>
                     <appName>jrchatbot</appName>
+                    <includeTarget>false</includeTarget>
+                    <includes>
+                        <include>target/JRBot.jar</include>
+                    </includes>
                     <processTypes>
-                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* JRBotBootstrap</web>
+                        <web>java -jar target/JRBot.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
