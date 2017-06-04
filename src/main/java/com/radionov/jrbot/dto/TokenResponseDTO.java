@@ -1,21 +1,21 @@
 package com.radionov.jrbot.dto;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author Andrey Radionov
  */
 public class TokenResponseDTO {
-    @SerializedName("token_type")
+    @JsonProperty("token_type")
     private String tokenType;
 
-    @SerializedName("expires_in")
+    @JsonProperty("expires_in")
     private int expiresIn;
 
-    @SerializedName("ext_expires_in")
+    @JsonProperty("ext_expires_in")
     private int extExpiresIn;
 
-    @SerializedName("access_token")
+    @JsonProperty("access_token")
     private String accessToken;
 
     public String getTokenType() {
