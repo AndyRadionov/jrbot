@@ -1,8 +1,5 @@
 package com.radionov.jrbot.dto;
 
-import com.radionov.jrbot.model.Conversation;
-import com.radionov.jrbot.model.User;
-
 import java.util.Date;
 
 /**
@@ -13,9 +10,9 @@ public class MessageRequestDTO {
     private String text;
     private String type;
     private Date timestamp;
-    private Conversation conversation;
-    private User from;
-    private User recipient;
+    private ConversationData conversation;
+    private UserData from;
+    private UserData recipient;
     private String serviceUrl;
 
     public String getId() {
@@ -27,6 +24,7 @@ public class MessageRequestDTO {
     }
 
     public String getText() {
+        if (text == null) return "";
         return text;
     }
 
@@ -50,27 +48,27 @@ public class MessageRequestDTO {
         this.timestamp = timestamp;
     }
 
-    public Conversation getConversation() {
+    public ConversationData getConversation() {
         return conversation;
     }
 
-    public void setConversation(Conversation conversation) {
+    public void setConversation(ConversationData conversation) {
         this.conversation = conversation;
     }
 
-    public User getFrom() {
+    public UserData getFrom() {
         return from;
     }
 
-    public void setFrom(User from) {
+    public void setFrom(UserData from) {
         this.from = from;
     }
 
-    public User getRecipient() {
+    public UserData getRecipient() {
         return recipient;
     }
 
-    public void setRecipient(User recipient) {
+    public void setRecipient(UserData recipient) {
         this.recipient = recipient;
     }
 

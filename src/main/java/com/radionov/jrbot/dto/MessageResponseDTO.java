@@ -1,15 +1,12 @@
 package com.radionov.jrbot.dto;
 
-import com.radionov.jrbot.model.Conversation;
-import com.radionov.jrbot.model.User;
-
 /**
  * @author Andrey Radionov
  */
 public class MessageResponseDTO {
     private String type;
-    private User from;
-    private Conversation conversation;
+    private UserData from;
+    private ConversationData conversation;
     private String text;
 
     public MessageResponseDTO() {
@@ -31,19 +28,19 @@ public class MessageResponseDTO {
         this.type = type;
     }
 
-    public User getFrom() {
+    public UserData getFrom() {
         return from;
     }
 
-    public void setFrom(User from) {
+    public void setFrom(UserData from) {
         this.from = from;
     }
 
-    public Conversation getConversation() {
+    public ConversationData getConversation() {
         return conversation;
     }
 
-    public void setConversation(Conversation conversation) {
+    public void setConversation(ConversationData conversation) {
         this.conversation = conversation;
     }
 
