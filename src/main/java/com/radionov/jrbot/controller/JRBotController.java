@@ -59,7 +59,7 @@ public class JRBotController {
             if (lowerMsg.contains("time") || lowerMsg.contains("date") || lowerMsg.contains("время") || lowerMsg.contains("дата")) {
                 responseMsg += "сейчас " + DATE_FORMAT.format(new Date());
             } else if (lowerMsg.contains("hi") || lowerMsg.contains("hello") || lowerMsg.contains("привет")) {
-                responseMsg += "привет! (wave)";
+                responseMsg += "Привет! (wave)";
             } else {
                 responseMsg += "Что хотел?";
             }
