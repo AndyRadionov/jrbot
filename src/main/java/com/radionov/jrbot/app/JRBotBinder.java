@@ -1,6 +1,6 @@
 package com.radionov.jrbot.app;
 
-import com.radionov.jrbot.endpoint.JRBotEndpoint;
+import com.radionov.jrbot.service.MessageService;
 import com.radionov.jrbot.service.MessageServiceImpl;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 
@@ -12,6 +12,6 @@ import javax.inject.Singleton;
 public class JRBotBinder extends AbstractBinder {
     @Override
     protected void configure() {
-        bind(MessageServiceImpl.class).to(JRBotEndpoint.class).in(Singleton.class);
+        bind(MessageServiceImpl.class).to(MessageService.class).in(Singleton.class);
     }
 }

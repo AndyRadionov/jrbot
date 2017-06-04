@@ -1,6 +1,7 @@
 package com.radionov.jrbot.endpoint;
 
 import com.radionov.jrbot.dto.MessageRequestDTO;
+import com.radionov.jrbot.dto.UserData;
 import com.radionov.jrbot.service.MessageService;
 
 import javax.inject.Inject;
@@ -33,6 +34,6 @@ public class JRBotEndpoint {
     @Path("/logs")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getLogs() {
-        return Response.ok().entity("").build();
+        return Response.ok().entity(new UserData()).build();
     }
 }

@@ -11,7 +11,6 @@ import java.net.URI;
 public class JRBotMain {
     public static void main(String[] args) {
         int port = Integer.parseInt(System.getenv("PORT"));
-        //int port = 8083;
         URI baseUri = UriBuilder.fromUri("http://localhost/").port(port).build();
         JRBotApplication config = new JRBotApplication();
         JettyHttpContainerFactory.createServer(baseUri, config);

@@ -13,9 +13,9 @@
 *.rar
 
 # JetBrains
-.idea/
+.idea/*
 *.iml
 
-/out/
-/target/
-config/
+/out/*
+/target/*
+config/*
