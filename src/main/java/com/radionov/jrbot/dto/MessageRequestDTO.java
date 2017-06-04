@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * @author Andrey Radionov
  */
-public class RequestMessageDTO {
+public class MessageRequestDTO {
     private String id;
     private String text;
     private String type;
@@ -16,6 +16,7 @@ public class RequestMessageDTO {
     private Conversation conversation;
     private User from;
     private User recipient;
+    private String serviceUrl;
 
     public String getId() {
         return id;
@@ -71,5 +72,13 @@ public class RequestMessageDTO {
 
     public void setRecipient(User recipient) {
         this.recipient = recipient;
+    }
+
+    public String getServiceUrl() {
+        return serviceUrl;
+    }
+
+    public void setServiceUrl(String serviceUrl) {
+        this.serviceUrl = serviceUrl;
     }
 }
