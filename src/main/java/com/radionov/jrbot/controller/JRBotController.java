@@ -62,7 +62,7 @@ public class JRBotController {
             } else {
                 responseMsg += "Что хотел?";
             }
-
+            System.out.println("+++++++++" + responseMsg);
             MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, APP_ID, responseMsg);
 
             String url = String.format("%s/v3/conversations/%s/activities/",
