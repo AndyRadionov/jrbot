@@ -25,6 +25,7 @@ public class JRBotEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response receiveMessage(MessageRequestDTO messageRequestDTO) {
+        System.out.println("====Inside receiveMsg");
         messageService.processMessage(messageRequestDTO);
         return Response.ok().build();
     }
