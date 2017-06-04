@@ -14,6 +14,6 @@ public class TimeMessageProcessorImpl implements MessageProcessor {
     public String processMessage(String message) {
         ZoneId msc = ZoneId.of("Europe/Moscow");
         ZonedDateTime zdt = ZonedDateTime.now(msc);
-        return ", сейчас " + zdt.format(DATE_FORMAT);
+        return ", сейчас " + zdt.format(DATE_FORMAT) + " пше (МСК)";
     }
 }
