@@ -1,5 +1,6 @@
 package com.radionov.jrbot.service.messageprocessor;
 
+
 /**
  * @author Andrey Radionov
  */

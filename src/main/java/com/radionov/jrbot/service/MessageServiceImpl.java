@@ -7,6 +7,7 @@ import com.radionov.jrbot.dto.TokenResponseDTO;
 import com.radionov.jrbot.service.messageprocessor.*;
 import org.glassfish.jersey.jackson.JacksonFeature;
 
+import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -21,8 +22,12 @@ public class MessageServiceImpl implements MessageService {
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
     private static final MessageProcessor WEATHER_MESSAGE_PROCESSOR = new WeatherMessageProcessorImpl();
-    private Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
+    private Client client;
 
+    @Inject
+    public MessageServiceImpl(Client client) {
+        this.client = client;
+    }
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
         String lowerRequestMsg = messageRequestDTO.getText().toLowerCase();
