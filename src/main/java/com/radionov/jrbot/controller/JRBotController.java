@@ -3,11 +3,11 @@ package com.radionov.jrbot.controller;
 import com.google.gson.Gson;
 import com.radionov.jrbot.dto.MessageRequestDTO;
 import com.radionov.jrbot.dto.MessageResponseDTO;
-import com.radionov.jrbot.dto.TokenRequestDTO;
-import com.radionov.jrbot.dto.TokenResponseDTO;
+import com.radionov.jrbot.dto.TokenDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.client.*;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.text.DateFormat;
@@ -32,7 +32,6 @@ public class JRBotController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response receiveMessage(String body) {
-        System.out.println("body = " + body);
         MessageRequestDTO messageRequestDTO = GSON.fromJson(body, MessageRequestDTO.class);
         messages.add(messageRequestDTO);
 
@@ -41,6 +40,7 @@ public class JRBotController {
                 .status(Response.Status.OK)
                 .build();
     }
+
 
     @GET
     @Path("/logs")
@@ -63,13 +63,13 @@ public class JRBotController {
             } else {
                 responseMsg += "Что хотел?";
             }
-            System.out.println("+++++++++" + responseMsg);
+
             MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, APP_ID, responseMsg);
 
             String url = String.format("%s/v3/conversations/%s/activities/",
                     messageRequestDTO.getServiceUrl(), messageRequestDTO.getConversation().getId());
 
-            TokenResponseDTO token = getToken();
+            TokenDTO token = getToken();
             client.target(url)
                     .request()
                     .header("Authorization", "Bearer " + token.getAccessToken())
@@ -79,13 +79,16 @@ public class JRBotController {
         }
     }
 
-    private TokenResponseDTO getToken() {
-        TokenRequestDTO tokenRequestDTO = new TokenRequestDTO(APP_ID, CLIENT_SECRET,
-                "client_credentials", "https://api.botframework.com/.default");
-
-        return client.target("https://login.microsoftonline.com/common/oauth2/v2.0/token")
-                .request(MediaType.APPLICATION_JSON)
-                .buildPost(Entity.entity(GSON.toJson(tokenRequestDTO), MediaType.APPLICATION_JSON))
-                .invoke(TokenResponseDTO.class);
+    private TokenDTO getToken() {
+        Form form = new Form();
+        form.param("client_id", APP_ID);
+        form.param("client_secret", CLIENT_SECRET);
+        form.param("grant_type", "client_credentials");
+        form.param("scope", "https://api.botframework.com/.default");
+        String tokenJson =  client
+                .target("https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token")
+                .request(MediaType.MULTIPART_FORM_DATA)
+                .post(Entity.form(form), String.class);
+        return GSON.fromJson(tokenJson, TokenDTO.class);
     }
 }

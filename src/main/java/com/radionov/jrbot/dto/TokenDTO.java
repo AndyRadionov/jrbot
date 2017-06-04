@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * @author Andrey Radionov
  */
-public class TokenResponseDTO {
+public class TokenDTO {
     @SerializedName("token_type")
     private String tokenType;
 
