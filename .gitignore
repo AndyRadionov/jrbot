@@ -13,7 +13,7 @@
 *.rar
 
 # JetBrains
-.idea
+.idea/
 *.iml
 
 /out/
