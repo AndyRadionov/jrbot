@@ -32,6 +32,7 @@ public class JRBotController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response receiveMessage(String body) {
+        System.out.println("body = " + body);
         MessageRequestDTO messageRequestDTO = GSON.fromJson(body, MessageRequestDTO.class);
         messages.add(messageRequestDTO);
 
