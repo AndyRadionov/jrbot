@@ -14,12 +14,7 @@ import javax.ws.rs.core.Response;
  */
 @Path("/")
 public class JRBotEndpoint {
-    private MessageService messageService;
-
-    @Inject
-    public JRBotEndpoint(MessageService messageService) {
-        this.messageService = messageService;
-    }
+    @Inject private MessageService messageService;
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

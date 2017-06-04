@@ -22,12 +22,7 @@ public class MessageServiceImpl implements MessageService {
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
     private static final MessageProcessor WEATHER_MESSAGE_PROCESSOR = new WeatherMessageProcessorImpl();
-    private Client client;
-
-    @Inject
-    public MessageServiceImpl(Client client) {
-        this.client = client;
-    }
+    @Inject private Client client;
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
         String lowerRequestMsg = messageRequestDTO.getText().toLowerCase();
