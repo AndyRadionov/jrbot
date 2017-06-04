@@ -1,10 +1,13 @@
 package com.radionov.jrbot.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 /**
  * @author Andrey Radionov
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MessageRequestDTO {
     private String id;
     private String text;
