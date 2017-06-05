@@ -7,6 +7,7 @@ import com.radionov.jrbot.dto.TokenResponseDTO;
 import com.radionov.jrbot.service.messageprocessor.*;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
@@ -16,7 +17,7 @@ import javax.ws.rs.core.MediaType;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
-    @Inject private static MessageProcessor jokeMessageProcessor;
+    @Inject @Named("jokeMessageProcessor") private static MessageProcessor jokeMessageProcessor;
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
