@@ -14,7 +14,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
@@ -37,7 +36,7 @@ public class MessageServiceImpl implements MessageService {
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);
         String responseMsg = messageRequestDTO.getFrom().getName() + processedMsg;
 
-        MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, JRBotConfig.APP_ID, responseMsg);
+        MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, responseMsg);
 
         String url = String.format("%sv3/conversations/%s/activities/%s",
                 messageRequestDTO.getServiceUrl(),
@@ -54,6 +53,8 @@ public class MessageServiceImpl implements MessageService {
 
     private MessageProcessor getMessageProcessor(String msg) {
         LOGGER.debug("getMessageProcessor for message {}", msg);
+        System.out.println(msg);
+        System.out.println("----" + isMsgStartWith(msg, "-h", "--help", "help"));
         if (isMsgStartWith(msg, "-h", "--help", "help")) return helpMessageProcessor;
         if (msg.startsWith("-")) {
             if (isMsgStartWith(msg,"-j", "--joke")) return jokeMessageProcessor;

@@ -15,7 +15,7 @@ public class TextMessageProcessorImpl implements MessageProcessor {
         if (message.contains("hi") || message.contains("hello") || message.contains("привет")) {
             return ", привет! (wave)";
         } else {
-            return ", help - справка";
+            return ", --help - справка";
         }
     }
 }

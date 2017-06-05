@@ -14,7 +14,7 @@ public class MessageResponseDTO {
     public MessageResponseDTO() {
     }
 
-    public MessageResponseDTO(MessageRequestDTO messageRequestDTO, String appId, String text) {
+    public MessageResponseDTO(MessageRequestDTO messageRequestDTO, String text) {
         this.type = "message";
         this.from = messageRequestDTO.getRecipient();
         this.recipient = messageRequestDTO.getFrom();
@@ -38,7 +38,6 @@ public class MessageResponseDTO {
     public void setFrom(UserData from) {
         this.from = from;
     }
-
 
     public UserData getRecipient() {
         return recipient;
