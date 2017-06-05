@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  */
 public class MessageServiceImpl implements MessageService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageServiceImpl.class);
-
+    private static final String BASE_URL = "https://smba.trafficmanager.net/apis";
     private static final MessageProcessor JOKE_MESSAGE_PROCESSOR = new JokeMessageProcessorImpl();
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
@@ -38,8 +38,7 @@ public class MessageServiceImpl implements MessageService {
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, JRBotConfig.APP_ID, responseMsg);
 
-        String url = String.format("%sv3/conversations/%s/activities/",
-                messageRequestDTO.getServiceUrl(),
+        String url = String.format(BASE_URL + "/v3/conversations/%s/activities/",
                 messageRequestDTO.getConversation().getId());
         LOGGER.debug("++++ responseMSG {}", responseDTO);
         LOGGER.debug("++++ url {}", url);
