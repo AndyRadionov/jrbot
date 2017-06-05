@@ -14,6 +14,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
+import java.util.function.Function;
+import java.util.stream.Stream;
 
 /**
  * @author Andrey Radionov
@@ -52,14 +54,18 @@ public class MessageServiceImpl implements MessageService {
 
     private MessageProcessor getMessageProcessor(String msg) {
         LOGGER.debug("getMessageProcessor for message {}", msg);
+        if (isMsgStartWith(msg, "-h", "--help", "help")) return helpMessageProcessor;
         if (msg.startsWith("-")) {
-            if (msg.startsWith("-h") || msg.startsWith("--help")) return helpMessageProcessor;
-            if (msg.startsWith("-t") || msg.startsWith("--time")) return timeMessageProcessor;
-            if (msg.startsWith("-w") || msg.startsWith("--weather")) return weatherMessageProcessor;
+            if (isMsgStartWith(msg,"-h", "--help")) return helpMessageProcessor;
+            if (isMsgStartWith(msg,"-j", "--joke")) return jokeMessageProcessor;
+            if (isMsgStartWith(msg,"-t", "--time")) return timeMessageProcessor;
+            if (isMsgStartWith(msg,"-w", "--weather")) return weatherMessageProcessor;
         }
-        if (msg.startsWith("help")) return helpMessageProcessor;
-        if (msg.contains("joke") || msg.contains("анекдот")) return jokeMessageProcessor;
         return textMessageProcessor;
+    }
+
+    private boolean isMsgStartWith(String msg, String... args) {
+        return Stream.of(args).anyMatch(msg::startsWith);
     }
 
     private TokenResponseDTO getToken() {
