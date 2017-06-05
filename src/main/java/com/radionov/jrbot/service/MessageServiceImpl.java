@@ -34,6 +34,7 @@ public class MessageServiceImpl implements MessageService {
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);
+        System.out.println("++++" + processedMsg);
         String responseMsg = messageRequestDTO.getFrom().getName() + processedMsg;
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, responseMsg);
