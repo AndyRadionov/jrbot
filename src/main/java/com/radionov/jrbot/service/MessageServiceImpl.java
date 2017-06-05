@@ -38,7 +38,7 @@ public class MessageServiceImpl implements MessageService {
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, JRBotConfig.APP_ID, responseMsg);
 
-        String url = String.format("%s/v3/conversations/%s/activities/",
+        String url = String.format("%sv3/conversations/%s/activities/",
                 messageRequestDTO.getServiceUrl(),
                 messageRequestDTO.getConversation().getId());
         LOGGER.debug("++++ responseMSG {}", responseDTO);
