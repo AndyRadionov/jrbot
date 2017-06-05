@@ -25,14 +25,14 @@ public class WeatherResponseDTO {
         if (list == null || list.size() == 0) return "Нет данных";
         WeatherListObject weather = list.get(0);
         return "Погода в " + weather.name + ":" +
-                "\n  температура = " + weather.main.temp +
-                "\n  давление = " + weather.main.pressure +
-                "\n  влажность = " + weather.main.humidity +
-                "\n  мин температура = " + weather.main.tempMin +
-                "\n  макс температура = " + weather.main.tempMax +
-                "\n  скорость ветра = " + weather.wind.speed +
-                "\n  дождь = " + weather.getRain() +
-                "\n  снег = " + weather.getSnow();
+                "  \nтемпература = " + weather.main.temp +
+                "  \nдавление = " + weather.main.pressure +
+                "  \nвлажность = " + weather.main.humidity +
+                "  \nмин температура = " + weather.main.tempMin +
+                "  \nмакс температура = " + weather.main.tempMax +
+                "  \nскорость ветра = " + weather.wind.speed +
+                "  \nдождь = " + weather.getRain() +
+                "  \nснег = " + weather.getSnow();
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
