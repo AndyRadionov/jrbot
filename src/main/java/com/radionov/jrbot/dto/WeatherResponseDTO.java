@@ -86,6 +86,7 @@ public class WeatherResponseDTO {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private static class MainWeatherParams {
         private String temp;
         private String pressure;
@@ -136,6 +137,7 @@ public class WeatherResponseDTO {
         }
     }
 
+    @JsonIgnoreProperties(ignoreUnknown = true)
     private static class WindParams {
         private String speed;
         private String deg;
