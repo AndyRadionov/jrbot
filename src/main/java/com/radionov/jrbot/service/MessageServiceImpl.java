@@ -38,11 +38,11 @@ public class MessageServiceImpl implements MessageService {
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, JRBotConfig.APP_ID, responseMsg);
 
-        String url = String.format("%s/v3/conversations/%s/activities/%s",
+        String url = String.format("%s/v3/conversations/%s/activities/",
                 messageRequestDTO.getServiceUrl(),
-                messageRequestDTO.getConversation().getId(),
-                messageRequestDTO.getFrom().getId());
-        LOGGER.debug("++++ responeMSG {}", responseDTO);
+                messageRequestDTO.getConversation().getId());
+        LOGGER.debug("++++ responseMSG {}", responseDTO);
+        LOGGER.debug("++++ url {}", url);
         LOGGER.debug("=== status {}", client.target(url)
                 .request()
                 .header("Authorization", "Bearer " + getToken().getAccessToken())
