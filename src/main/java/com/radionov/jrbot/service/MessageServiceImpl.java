@@ -29,7 +29,7 @@ public class MessageServiceImpl implements MessageService {
     @Inject private Client client;
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
-        LOGGER.debug("MessageService processMessage");
+        LOGGER.debug("MessageService processMessage {}", messageRequestDTO);
         String lowerRequestMsg = messageRequestDTO.getText().toLowerCase();
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
