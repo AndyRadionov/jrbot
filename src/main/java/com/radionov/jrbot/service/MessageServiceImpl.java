@@ -41,11 +41,14 @@ public class MessageServiceImpl implements MessageService {
                 messageRequestDTO.getServiceUrl(),
                 messageRequestDTO.getConversation().getId(),
                 messageRequestDTO.getId());
+        String token = getToken().getAccessToken();
+
+        LOGGER.debug("++++ token {}", token);
         LOGGER.debug("++++ responseMSG {}", responseDTO);
         LOGGER.debug("++++ url {}", url);
         LOGGER.debug("=== status {}", client.target(url)
                 .request()
-                .header("Authorization", "Bearer " + getToken().getAccessToken())
+                .header("Authorization", "Bearer " + token)
                 .header("content-type", "application/json; charset=utf8")
                 .post(Entity.entity(responseDTO, MediaType.APPLICATION_JSON))
         .getStatusInfo());
