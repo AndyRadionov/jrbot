@@ -15,7 +15,7 @@ public class HelpMessageProcessorImpl implements MessageProcessor {
         return ",  \n" +
                 "-h/--help - помощь  \n" +
                 "-j/--joke - анекдот  \n" +
-                "-t/--time - время  \n" +
-                "-w/--weather <city> - погода";
+                "-w/--weather <city> - погода" +
+                "-t/--time - время  \n";
     }
 }

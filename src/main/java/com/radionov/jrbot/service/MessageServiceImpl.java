@@ -34,8 +34,8 @@ public class MessageServiceImpl implements MessageService {
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);
-        System.out.println("++++" + processedMsg);
         String responseMsg = messageRequestDTO.getFrom().getName() + processedMsg;
+        System.out.println("++++" + responseMsg);
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, responseMsg);
 
@@ -43,11 +43,10 @@ public class MessageServiceImpl implements MessageService {
                 messageRequestDTO.getServiceUrl(),
                 messageRequestDTO.getConversation().getId(),
                 messageRequestDTO.getId());
-        String token = getToken().getAccessToken();
 
         client.target(url)
                 .request()
-                .header("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + getToken().getAccessToken())
                 .header("content-type", "application/json; charset=utf8")
                 .post(Entity.entity(responseDTO, MediaType.APPLICATION_JSON));
     }
