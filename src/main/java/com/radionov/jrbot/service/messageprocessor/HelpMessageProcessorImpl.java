@@ -7,7 +7,7 @@ public class HelpMessageProcessorImpl implements MessageProcessor {
     @Override
     public String processMessage(String message) {
         return ",  \n" +
-                "-h/--help - помощь  \n" +
+                "help - помощь  \n" +
                 "-t/--time - время";
     }
 }
