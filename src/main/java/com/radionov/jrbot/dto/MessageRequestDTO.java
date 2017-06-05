@@ -17,6 +17,7 @@ public class MessageRequestDTO {
     private UserData from;
     private UserData recipient;
     private String serviceUrl;
+    private String channelId;
 
     public String getId() {
         return id;
@@ -81,6 +82,14 @@ public class MessageRequestDTO {
 
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
+    }
+
+    public String getChannelId() {
+        return channelId;
+    }
+
+    public void setChannelId(String channelId) {
+        this.channelId = channelId;
     }
 
     @Override
