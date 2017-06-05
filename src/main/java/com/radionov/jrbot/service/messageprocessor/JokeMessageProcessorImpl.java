@@ -1,7 +1,10 @@
 package com.radionov.jrbot.service.messageprocessor;
 
+import org.glassfish.jersey.jackson.JacksonFeature;
+
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -9,7 +12,7 @@ import javax.ws.rs.core.MediaType;
  */
 public class JokeMessageProcessorImpl implements MessageProcessor {
     private static final String JOKE_URL = "http://rzhunemogu.ru/RandJSON.aspx?CType=1";
-    @Inject Client client;
+    private Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).build();
 
     @Override
     public String processMessage(String message) {
@@ -19,5 +22,9 @@ public class JokeMessageProcessorImpl implements MessageProcessor {
                 .get(String.class);
         if (jokeResponse == null) return ", кочились анекдоты.";
         return ",\n  " + jokeResponse.substring(12, jokeResponse.length() - 2);
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

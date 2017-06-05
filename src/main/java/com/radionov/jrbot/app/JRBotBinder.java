@@ -19,10 +19,7 @@ public class JRBotBinder extends AbstractBinder {
     @Override
     protected void configure() {
         bindFactory(JerseyClientFactory.class).to(Client.class).in(Singleton.class);
-        bind(JokeMessageProcessorImpl.class).named("jokeMessageProcessor")
-                .to(MessageProcessor.class).in(Singleton.class);
         bind(MessageServiceImpl.class).to(MessageService.class).in(Singleton.class);
-
     }
 
     private static class JerseyClientFactory implements Factory<Client> {

@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
-    @Inject @Named("jokeMessageProcessor") private static MessageProcessor jokeMessageProcessor;
+    private static final MessageProcessor JOKE_MESSAGE_PROCESSOR = new JokeMessageProcessorImpl();
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
