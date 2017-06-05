@@ -17,6 +17,7 @@ public class JokeMessageProcessorImpl implements MessageProcessor {
                 client.target(JOKE_URL)
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .get(String.class);
+        if (jokeResponse == null) return ", кочились анекдоты.";
         return ",\n  " + jokeResponse.substring(12, jokeResponse.length() - 2);
     }
 }
