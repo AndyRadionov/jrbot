@@ -21,6 +21,8 @@ import java.util.stream.Stream;
  */
 public class MessageServiceImpl implements MessageService {
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageServiceImpl.class);
+    private static final String SERVICE_URL = "%sv3/conversations/%s/activities/%s";
+    private static final String TOKEN_URL = "https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token";
     @Inject @Named("jokeMessageProcessor") private MessageProcessor jokeMessageProcessor;
     @Inject @Named("helpMessageProcessor") private MessageProcessor helpMessageProcessor;
     @Inject @Named("textMessageProcessor") private MessageProcessor textMessageProcessor;
@@ -35,11 +37,10 @@ public class MessageServiceImpl implements MessageService {
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);
         String responseMsg = messageRequestDTO.getFrom().getName() + processedMsg;
-        System.out.println("++++" + responseMsg);
 
         MessageResponseDTO responseDTO = new MessageResponseDTO(messageRequestDTO, responseMsg);
 
-        String url = String.format("%sv3/conversations/%s/activities/%s",
+        String url = String.format(SERVICE_URL,
                 messageRequestDTO.getServiceUrl(),
                 messageRequestDTO.getConversation().getId(),
                 messageRequestDTO.getId());
@@ -53,8 +54,6 @@ public class MessageServiceImpl implements MessageService {
 
     private MessageProcessor getMessageProcessor(String msg) {
         LOGGER.debug("getMessageProcessor for message {}", msg);
-        System.out.println(msg);
-        System.out.println("----" + isMsgStartWith(msg, "-h", "--help", "help"));
         if (isMsgStartWith(msg, "-h", "--help", "help")) return helpMessageProcessor;
         if (msg.startsWith("-")) {
             if (isMsgStartWith(msg,"-j", "--joke")) return jokeMessageProcessor;
@@ -70,13 +69,13 @@ public class MessageServiceImpl implements MessageService {
 
     private TokenResponseDTO getToken() {
         LOGGER.debug("getToken");
-        Form form = new Form();
-        form.param("client_id", JRBotConfig.APP_ID);
-        form.param("client_secret", JRBotConfig.CLIENT_SECRET);
-        form.param("grant_type", "client_credentials");
-        form.param("scope", "https://api.botframework.com/.default");
+        Form form = new Form()
+                .param("client_id", JRBotConfig.APP_ID)
+                .param("client_secret", JRBotConfig.CLIENT_SECRET)
+                .param("grant_type", "client_credentials")
+                .param("scope", "https://api.botframework.com/.default");
 
-        return client.target("https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token")
+        return client.target(TOKEN_URL)
                 .request(MediaType.MULTIPART_FORM_DATA)
                 .post(Entity.form(form), TokenResponseDTO.class);
     }
