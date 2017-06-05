@@ -8,6 +8,6 @@ public class HelpMessageProcessorImpl implements MessageProcessor {
     public String processMessage(String message) {
         return ",  \n" +
                 "-h/--help - помощь  \n" +
-                "-t/--time время";
+                "-t/--time - время";
     }
 }
