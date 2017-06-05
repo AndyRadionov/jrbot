@@ -68,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextMessageProcessorImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TextMessageProcessorImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TextMessageProcessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
@@ -91,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelpMessageProcessorImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HelpMessageProcessorImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+            <state relative-caret-position="180">
+              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -143,10 +143,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/app/JRBotBinder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/WeatherMessageProcessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/endpoint/JRBotEndpoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TimeMessageProcessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/MessageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TextMessageProcessorImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java" />
       </list>
     </option>
   </component>
@@ -1271,14 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="29" lean-forward="false" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TimeMessageProcessorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -1301,6 +1293,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
           <folding />
         </state>
       </provider>
