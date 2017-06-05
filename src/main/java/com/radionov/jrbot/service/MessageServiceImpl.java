@@ -5,11 +5,9 @@ import com.radionov.jrbot.dto.MessageRequestDTO;
 import com.radionov.jrbot.dto.MessageResponseDTO;
 import com.radionov.jrbot.dto.TokenResponseDTO;
 import com.radionov.jrbot.service.messageprocessor.*;
-import org.glassfish.jersey.jackson.JacksonFeature;
 
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
@@ -18,6 +16,7 @@ import javax.ws.rs.core.MediaType;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
+    private static final MessageProcessor JOKE_MESSAGE_PROCESSOR = new JokeMessageProcessorImpl();
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
@@ -50,6 +49,7 @@ public class MessageServiceImpl implements MessageService {
             if (s.startsWith("-w") || s.startsWith("--weather")) return WEATHER_MESSAGE_PROCESSOR;
         }
         if (s.startsWith("help")) return HELP_MESSAGE_PROCESSOR;
+        if (s.contains("joke") || s.contains("анекдот")) return JOKE_MESSAGE_PROCESSOR;
         return TEXT_MESSAGE_PROCESSOR;
     }
 
