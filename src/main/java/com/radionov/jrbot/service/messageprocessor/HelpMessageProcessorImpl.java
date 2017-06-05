@@ -14,7 +14,7 @@ public class HelpMessageProcessorImpl implements MessageProcessor {
         LOGGER.debug("HelpMessageProcessor - processMessage {}", message);
         return ",  \n" +
                 "-h/--help - помощь  \n" +
-                "-j/--joke - анекдот" +
+                "-j/--joke - анекдот  \n" +
                 "-t/--time - время  \n" +
                 "-w/--weather <city> - погода";
     }
