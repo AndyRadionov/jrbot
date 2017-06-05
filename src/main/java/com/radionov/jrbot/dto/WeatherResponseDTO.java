@@ -28,8 +28,6 @@ public class WeatherResponseDTO {
                 "  \nтемпература = " + weather.main.temp +
                 "  \nдавление = " + weather.main.pressure +
                 "  \nвлажность = " + weather.main.humidity +
-                "  \nмин температура = " + weather.main.tempMin +
-                "  \nмакс температура = " + weather.main.tempMax +
                 "  \nскорость ветра = " + weather.wind.speed +
                 "  \nдождь = " + weather.getRain() +
                 "  \nснег = " + weather.getSnow();
@@ -91,10 +89,6 @@ public class WeatherResponseDTO {
         private String temp;
         private String pressure;
         private String humidity;
-        @JsonProperty("temp_min")
-        private String tempMin;
-        @JsonProperty("temp_max")
-        private String tempMax;
 
         public String getTemp() {
             return temp;
@@ -118,22 +112,6 @@ public class WeatherResponseDTO {
 
         public void setHumidity(String humidity) {
             this.humidity = humidity;
-        }
-
-        public String getTempMin() {
-            return tempMin;
-        }
-
-        public void setTempMin(String tempMin) {
-            this.tempMin = tempMin;
-        }
-
-        public String getTempMax() {
-            return tempMax;
-        }
-
-        public void setTempMax(String tempMax) {
-            this.tempMax = tempMax;
         }
     }
 
