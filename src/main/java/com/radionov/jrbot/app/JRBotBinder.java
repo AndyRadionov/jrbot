@@ -2,6 +2,8 @@ package com.radionov.jrbot.app;
 
 import com.radionov.jrbot.service.MessageService;
 import com.radionov.jrbot.service.MessageServiceImpl;
+import com.radionov.jrbot.service.messageprocessor.JokeMessageProcessorImpl;
+import com.radionov.jrbot.service.messageprocessor.MessageProcessor;
 import org.glassfish.hk2.api.Factory;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.jackson.JacksonFeature;
@@ -18,6 +20,8 @@ public class JRBotBinder extends AbstractBinder {
     protected void configure() {
         bind(MessageServiceImpl.class).to(MessageService.class).in(Singleton.class);
         bindFactory(JerseyClientFactory.class).to(Client.class).in(Singleton.class);
+        bind(JokeMessageProcessorImpl.class).named("jokeMessageProcessor")
+                .to(MessageProcessor.class).in(Singleton.class);
     }
 
     private static class JerseyClientFactory implements Factory<Client> {

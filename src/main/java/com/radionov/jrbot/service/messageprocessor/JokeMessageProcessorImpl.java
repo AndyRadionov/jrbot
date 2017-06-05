@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
  */
 public class JokeMessageProcessorImpl implements MessageProcessor {
     private static final String JOKE_URL = "http://rzhunemogu.ru/RandJSON.aspx?CType=1";
-    @Inject Client client;
+    Client client;
 
     @Override
     public String processMessage(String message) {

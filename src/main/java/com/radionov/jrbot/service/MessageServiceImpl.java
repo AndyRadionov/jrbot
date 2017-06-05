@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
-    private static final MessageProcessor JOKE_MESSAGE_PROCESSOR = new JokeMessageProcessorImpl();
+    @Inject private static MessageProcessor jokeMessageProcessor;
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
     private static final MessageProcessor TIME_MESSAGE_PROCESSOR = new TimeMessageProcessorImpl();
@@ -49,7 +49,7 @@ public class MessageServiceImpl implements MessageService {
             if (s.startsWith("-w") || s.startsWith("--weather")) return WEATHER_MESSAGE_PROCESSOR;
         }
         if (s.startsWith("help")) return HELP_MESSAGE_PROCESSOR;
-        if (s.contains("joke") || s.contains("анекдот")) return JOKE_MESSAGE_PROCESSOR;
+        if (s.contains("joke") || s.contains("анекдот")) return jokeMessageProcessor;
         return TEXT_MESSAGE_PROCESSOR;
     }
 
