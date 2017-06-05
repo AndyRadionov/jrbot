@@ -16,7 +16,7 @@ public class ConversationData {
 
     @Override
     public String toString() {
-        return "ConversationData{" +
+        return "Conversation{" +
                 "id='" + id + '\'' +
                 '}';
     }

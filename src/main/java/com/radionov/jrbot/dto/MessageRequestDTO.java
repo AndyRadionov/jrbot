@@ -85,7 +85,7 @@ public class MessageRequestDTO {
 
     @Override
     public String toString() {
-        return "MessageRequestDTO{" +
+        return "MessageRequest{" +
                 "id='" + id + '\'' +
                 ", text='" + text + '\'' +
                 ", type='" + type + '\'' +

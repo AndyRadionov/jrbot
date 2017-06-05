@@ -1,13 +1,15 @@
 package com.radionov.jrbot.endpoint;
 
 import com.radionov.jrbot.dto.MessageRequestDTO;
-import com.radionov.jrbot.dto.UserData;
 import com.radionov.jrbot.service.MessageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
-import javax.ws.rs.*;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 

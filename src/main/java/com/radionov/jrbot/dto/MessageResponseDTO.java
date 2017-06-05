@@ -54,7 +54,7 @@ public class MessageResponseDTO {
 
     @Override
     public String toString() {
-        return "MessageResponseDTO{" +
+        return "MessageResponse{" +
                 "type='" + type + '\'' +
                 ", from=" + from +
                 ", conversation=" + conversation +
