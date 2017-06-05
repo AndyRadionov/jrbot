@@ -50,7 +50,7 @@ public class MessageServiceImpl implements MessageService {
             if (s.startsWith("-w") || s.startsWith("--weather")) return WEATHER_MESSAGE_PROCESSOR;
         }
         if (s.startsWith("help")) return HELP_MESSAGE_PROCESSOR;
-        if (s.contains("joke") || s.contains("анекдот")) return jokeMessageProcessor;
+        if (s.contains("joke") || s.contains("анекдот")) return JOKE_MESSAGE_PROCESSOR;
         return TEXT_MESSAGE_PROCESSOR;
     }
 
