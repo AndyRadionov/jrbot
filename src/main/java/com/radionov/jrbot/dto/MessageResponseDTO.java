@@ -51,4 +51,14 @@ public class MessageResponseDTO {
     public void setText(String text) {
         this.text = text;
     }
+
+    @Override
+    public String toString() {
+        return "MessageResponseDTO{" +
+                "type='" + type + '\'' +
+                ", from=" + from +
+                ", conversation=" + conversation +
+                ", text='" + text + '\'' +
+                '}';
+    }
 }

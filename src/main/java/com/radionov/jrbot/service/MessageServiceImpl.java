@@ -40,7 +40,7 @@ public class MessageServiceImpl implements MessageService {
 
         String url = String.format("%s/v3/conversations/%s/activities/",
                 messageRequestDTO.getServiceUrl(), messageRequestDTO.getConversation().getId());
-        LOGGER.debug("++++ responeMSG {}", responseDTO.getText());
+        LOGGER.debug("++++ responeMSG {}", responseDTO);
         client.target(url)
                 .request()
                 .header("Authorization", "Bearer " + getToken().getAccessToken())
