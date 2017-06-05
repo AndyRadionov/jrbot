@@ -56,7 +56,6 @@ public class MessageServiceImpl implements MessageService {
         LOGGER.debug("getMessageProcessor for message {}", msg);
         if (isMsgStartWith(msg, "-h", "--help", "help")) return helpMessageProcessor;
         if (msg.startsWith("-")) {
-            if (isMsgStartWith(msg,"-h", "--help")) return helpMessageProcessor;
             if (isMsgStartWith(msg,"-j", "--joke")) return jokeMessageProcessor;
             if (isMsgStartWith(msg,"-t", "--time")) return timeMessageProcessor;
             if (isMsgStartWith(msg,"-w", "--weather")) return weatherMessageProcessor;
