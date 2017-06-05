@@ -1,10 +1,10 @@
 package com.radionov.jrbot.service.messageprocessor;
 
-import com.radionov.jrbot.dto.JokeResponseDTO;
+import org.glassfish.jersey.jackson.JacksonFeature;
 
 import javax.inject.Inject;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.client.ClientBuilder;
 
 /**
  * @author Andrey Radionov
@@ -15,10 +15,10 @@ public class JokeMessageProcessorImpl implements MessageProcessor {
 
     @Override
     public String processMessage(String message) {
-        JokeResponseDTO jokeResponseDTO =
+        String jokeResponse =
                 client.target(JOKE_URL)
-                .request(MediaType.APPLICATION_JSON)
-                .get(JokeResponseDTO.class);
-        return ",\n  " + jokeResponseDTO.getContent();
+                .request("application/json; charset=utf8")
+                .get(String.class);
+        return ",\n  " + jokeResponse.substring(12, jokeResponse.length() - 2);
     }
 }
