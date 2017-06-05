@@ -91,14 +91,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelpMessageProcessorImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HelpMessageProcessorImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
-              <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+              <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
               <folding>
                 <element signature="e#220#221#0" expanded="true" />
-                <element signature="e#283#284#0" expanded="true" />
+                <element signature="e#285#286#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -114,7 +114,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeMessageProcessorImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TimeMessageProcessorImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TimeMessageProcessorImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="280">
@@ -147,8 +147,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/WeatherMessageProcessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/endpoint/JRBotEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/MessageServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TimeMessageProcessorImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java" />
       </list>
     </option>
   </component>
@@ -1291,22 +1291,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
-          <folding>
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/TimeMessageProcessorImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="16" column="61" lean-forward="false" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/radionov/jrbot/service/messageprocessor/HelpMessageProcessorImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding>
+            <element signature="e#220#221#0" expanded="true" />
+            <element signature="e#285#286#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

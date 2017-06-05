@@ -49,6 +49,7 @@ public class MessageServiceImpl implements MessageService {
             if (s.startsWith("-t") || s.startsWith("--time")) return TIME_MESSAGE_PROCESSOR;
             if (s.startsWith("-w") || s.startsWith("--weather")) return WEATHER_MESSAGE_PROCESSOR;
         }
+        if (s.startsWith("help")) return HELP_MESSAGE_PROCESSOR;
         return TEXT_MESSAGE_PROCESSOR;
     }
 
