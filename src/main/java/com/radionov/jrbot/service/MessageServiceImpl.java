@@ -5,6 +5,8 @@ import com.radionov.jrbot.dto.MessageRequestDTO;
 import com.radionov.jrbot.dto.MessageResponseDTO;
 import com.radionov.jrbot.dto.TokenResponseDTO;
 import com.radionov.jrbot.service.messageprocessor.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,6 +19,8 @@ import javax.ws.rs.core.MediaType;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageServiceImpl.class);
+
     private static final MessageProcessor JOKE_MESSAGE_PROCESSOR = new JokeMessageProcessorImpl();
     private static final MessageProcessor HELP_MESSAGE_PROCESSOR = new HelpMessageProcessorImpl();
     private static final MessageProcessor TEXT_MESSAGE_PROCESSOR = new TextMessageProcessorImpl();
@@ -25,6 +29,7 @@ public class MessageServiceImpl implements MessageService {
     @Inject private Client client;
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
+        LOGGER.debug("MessageService processMessage");
         String lowerRequestMsg = messageRequestDTO.getText().toLowerCase();
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);

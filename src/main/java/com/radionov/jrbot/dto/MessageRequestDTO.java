@@ -82,4 +82,18 @@ public class MessageRequestDTO {
     public void setServiceUrl(String serviceUrl) {
         this.serviceUrl = serviceUrl;
     }
+
+    @Override
+    public String toString() {
+        return "MessageRequestDTO{" +
+                "id='" + id + '\'' +
+                ", text='" + text + '\'' +
+                ", type='" + type + '\'' +
+                ", timestamp=" + timestamp +
+                ", conversation=" + conversation +
+                ", from=" + from +
+                ", recipient=" + recipient +
+                ", serviceUrl='" + serviceUrl + '\'' +
+                '}';
+    }
 }
