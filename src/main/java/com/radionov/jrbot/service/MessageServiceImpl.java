@@ -32,7 +32,7 @@ public class MessageServiceImpl implements MessageService {
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
         LOGGER.debug("MessageService processMessage {}", messageRequestDTO);
-        String lowerRequestMsg = messageRequestDTO.getText().toLowerCase();
+        String lowerRequestMsg = messageRequestDTO.getText().toLowerCase().trim();
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);

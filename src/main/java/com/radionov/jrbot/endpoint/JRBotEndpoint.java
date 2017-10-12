@@ -25,7 +25,7 @@ public class JRBotEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response receiveMessage(MessageRequestDTO messageRequestDTO) {
-        LOGGER.debug("ENDPOINT message", messageRequestDTO);
+        LOGGER.debug("ENDPOINT message {}", messageRequestDTO);
 
         messageService.processMessage(messageRequestDTO);
         return Response.ok().build();
