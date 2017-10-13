@@ -20,6 +20,7 @@ import java.util.stream.Stream;
  * @author Andrey Radionov
  */
 public class MessageServiceImpl implements MessageService {
+    private static final String CHAT_BOT_NAME = "@jrbot";
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageServiceImpl.class);
     private static final String SERVICE_URL = "%sv3/conversations/%s/activities/%s";
     private static final String TOKEN_URL = "https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token";
@@ -33,6 +34,11 @@ public class MessageServiceImpl implements MessageService {
     public void processMessage(MessageRequestDTO messageRequestDTO) {
         LOGGER.debug("MessageService processMessage {}", messageRequestDTO);
         String lowerRequestMsg = messageRequestDTO.getText().toLowerCase().trim();
+
+        if (lowerRequestMsg.contains(CHAT_BOT_NAME)) {
+            lowerRequestMsg = lowerRequestMsg.substring(
+                    lowerRequestMsg.lastIndexOf(CHAT_BOT_NAME) + CHAT_BOT_NAME.length()).trim();
+        }
 
         MessageProcessor messageProcessor = getMessageProcessor(lowerRequestMsg);
         String processedMsg = messageProcessor.processMessage(lowerRequestMsg);
