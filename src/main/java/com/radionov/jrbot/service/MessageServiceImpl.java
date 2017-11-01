@@ -33,8 +33,9 @@ public class MessageServiceImpl implements MessageService {
 
     public void processMessage(MessageRequestDTO messageRequestDTO) {
         LOGGER.debug("MessageService processMessage {}", messageRequestDTO);
-        String lowerRequestMsg = messageRequestDTO.getText().toLowerCase().trim();
+        if (messageRequestDTO.getText() == null) return;
 
+        String lowerRequestMsg = messageRequestDTO.getText().toLowerCase().trim();
         if (lowerRequestMsg.contains(CHAT_BOT_NAME)) {
             lowerRequestMsg = lowerRequestMsg.substring(
                     lowerRequestMsg.lastIndexOf(CHAT_BOT_NAME) + CHAT_BOT_NAME.length()).trim();
